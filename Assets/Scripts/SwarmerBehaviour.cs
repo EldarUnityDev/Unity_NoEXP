@@ -8,10 +8,10 @@ public class SwarmerBehaviour : MonoBehaviour
     protected void OnCollisionEnter(Collision collision)
     {
         //даём переменную тому, с кем столкнулись
-        GameObject theirGameObject = collision.gameObject;
-        PlayerBehaviour possiblePlayer = theirGameObject.GetComponent<PlayerBehaviour>();
+        //GameObject theirGameObject = collision.gameObject;
+        //PlayerBehaviour possiblePlayer = theirGameObject.GetComponent<PlayerBehaviour>();
         //если это игрок 
-        if (possiblePlayer == References.thePlayer)
+        if (collision.gameObject.GetComponent<PlayerBehaviour>() != null)
         {
             //this hurts the player
             Instantiate(exploisionPrefab, transform.position, transform.rotation);

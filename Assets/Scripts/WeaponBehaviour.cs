@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WeaponBehaviour : MonoBehaviour
 {
@@ -62,14 +64,12 @@ public class WeaponBehaviour : MonoBehaviour
     {
         References.alarmManager.RaiseAlertLevel();
         //add to player's internal list
-        References.thePlayer.weapons.Add(this);
         transform.position = References.thePlayer.transform.position;
         transform.rotation = References.thePlayer.transform.rotation;
         //Parent it to us - attach it so it moves with us
         transform.SetParent(References.thePlayer.transform);
         //чтобы старое и новое оружие одновременно не оказывалось в руках
-        References.thePlayer.SelectLatestWeapon();
-        References.canvas.mainWeaponPanel.AssignWeapon(this);
+        References.thePlayer.PickUpWeapon(this);
     }
 
     public void ReloadMag()
@@ -91,7 +91,7 @@ public class WeaponBehaviour : MonoBehaviour
                     shotAudio.Play();
 
                 }
-                References.screenShake.joltVector = transform.forward * kickAmount;
+                References.cameraTools.joltVector = transform.forward * kickAmount;
                 GameObject newBullet = Instantiate(bullet, transform.position + transform.forward, transform.rotation);
                 if (gameObject.transform.parent.GetComponent<SniperBehaviour>())
                 {
@@ -108,5 +108,12 @@ public class WeaponBehaviour : MonoBehaviour
             }
             currentMagSize--;
         }
+    }
+    public void Drop()
+    {
+        transform.parent = null;
+        //перемещаем в основную сцену, чтобы не сохранялось при переходе на след уровень
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
+        GetComponent<Useable>().enabled = true;
     }
 }

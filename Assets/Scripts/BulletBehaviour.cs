@@ -43,7 +43,7 @@ public class BulletBehaviour : MonoBehaviour
 
         //Получение урона
         GameObject theirGameObject = collision.gameObject;
-        HealthSystem theirHealthSystem = theirGameObject.GetComponent<HealthSystem>();
+        HealthSystem theirHealthSystem = theirGameObject.GetComponentInParent<HealthSystem>();
         if (theirHealthSystem != null)
         {
             theirHealthSystem.TakeDamage(bulletDamage);

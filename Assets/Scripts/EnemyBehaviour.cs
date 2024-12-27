@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+
+    public float speed;
     public Rigidbody ourRigidBody;
     public NavMeshAgent agent;
 
@@ -36,10 +38,13 @@ public class EnemyBehaviour : MonoBehaviour
     {
         ourRigidBody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
+
         overchargedStep = 0;
         knockbackCurrentTime = 0;
         beingKnockedBack = false;
         chasePlayerOn = true;
+
     }
 
     protected virtual void Update()
@@ -68,7 +73,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerBehaviour>() != null)
         {
-            Debug.Log("TIME TO DIE");
             GetComponent<HealthSystem>().KillMe();
         }
     }

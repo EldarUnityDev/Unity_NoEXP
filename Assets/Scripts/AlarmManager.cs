@@ -71,6 +71,7 @@ public class AlarmManager : MonoBehaviour
 
     public bool AlarmHasSounded()
     {
+        if(maxAlertLevel == 0) { return false; } //чтобы на старте не пищало, пока ещё не всё подгрузилось
         return alertLevel >= maxAlertLevel;
     }
 

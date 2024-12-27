@@ -29,7 +29,6 @@ public class LevelManager : MonoBehaviour
 
     public void StartNewGame()
     {
-        Destroy(References.essentials.gameObject);
         SceneManager.LoadScene("Startup");
         Time.timeScale = 1;
     }

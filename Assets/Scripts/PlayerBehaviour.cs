@@ -11,9 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     Rigidbody m_Rigidbody;
 
-    public List<WeaponBehaviour> weapons = new List<WeaponBehaviour>();
-    public int selectedWeaponIndex = 0;
-
+    public WeaponBehaviour mainWeapon;
+    public WeaponBehaviour secondaryWeapon;
     public int score;
     private void Awake()
     {
@@ -54,14 +53,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         Vector3 lookAtPosition = cursorPosition; //можно удалить?
         transform.LookAt(lookAtPosition);
-        if (weapons.Count > 0 && Input.GetButton("Fire1"))
+        if (mainWeapon != null && Input.GetButton("Fire1"))
         {
-            weapons[selectedWeaponIndex].Fire(cursorPosition);
+            mainWeapon.Fire(cursorPosition);
         }
 
         if (Input.GetButtonDown("Fire2")) //не всегда работает
         {
-            ChangeWeaponIndex(selectedWeaponIndex + 1);
+            SwitchWeapons();
         }
 
         if (Input.GetButtonDown("Use"))
@@ -91,31 +90,59 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    public void SelectLatestWeapon()
+    public void PickUpWeapon(WeaponBehaviour weapon)
     {
-        ChangeWeaponIndex(weapons.Count - 1);
-    }
-    private void ChangeWeaponIndex(int index)
-    {
-        selectedWeaponIndex = index;
-        if (selectedWeaponIndex >= weapons.Count)
+        if (mainWeapon == null)
         {
-            selectedWeaponIndex = 0;
+            //we don't have a main weapon, use THIS one
+            SetAsMainWeapon(weapon);
         }
-        //для каждого оружия
-        for (int i = 0; i < weapons.Count; i++)
+        else
         {
-            if (i == selectedWeaponIndex)
+            //we DO have a main weapon
+            if (secondaryWeapon == null)
             {
-                //если мы его выбрали, включи его
-                weapons[i].gameObject.SetActive(true);
-
+                //there's nothing in the secondary slot, put it there
+                SetAsSecondaryWeapon(weapon);
             }
             else
             {
-                //если не выбрано, деактивируй
-                weapons[i].gameObject.SetActive(false);
+                //both slots are already full:
+                //drop the old main weapon
+                mainWeapon.Drop();
+                //the new weapon becomes main weapon
+                SetAsMainWeapon(weapon);
+
+
             }
+
+
         }
+    }
+
+    void SetAsSecondaryWeapon(WeaponBehaviour weapon)
+    {
+        secondaryWeapon = weapon;
+        References.canvas.secondaryWeaponPanel.AssignWeapon(weapon);
+        weapon.gameObject.SetActive(false);
+    }
+    void SetAsMainWeapon(WeaponBehaviour weapon)
+    {
+        mainWeapon = weapon;
+        References.canvas.mainWeaponPanel.AssignWeapon(weapon);
+        weapon.gameObject.SetActive(true);
+    }
+
+    private void SwitchWeapons()
+    {
+        if (mainWeapon != null && secondaryWeapon != null)
+        {
+            WeaponBehaviour oldMainWeapon = mainWeapon;
+            SetAsMainWeapon(secondaryWeapon);
+            SetAsSecondaryWeapon(oldMainWeapon);
+        }
+        // weapons[i].gameObject.SetActive(true);
+        //weapons[i].gameObject.SetActive(false);
+
     }
 }

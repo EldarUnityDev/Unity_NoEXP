@@ -15,7 +15,7 @@ public class DeathEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        References.screenShake.shakeAmount = shakeAmount;
+        References.cameraTools.shakeAmount = shakeAmount;
         audioSource = GetComponent<AudioSource>();
         maxLightIntensity = myLight.intensity;
         secondsLeft = duration;

@@ -23,7 +23,7 @@ public static class References //: MonoBehaviour - означает, что скрипт - компон
     
     public static List<NavPoint> navPoints = new List<NavPoint>();
 
-    public static ScreenShake screenShake;
+    public static CameraTools cameraTools;
 
     public static float maxDistanceInALevel = 1000;
 

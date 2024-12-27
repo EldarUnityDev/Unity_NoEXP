@@ -32,6 +32,12 @@ public class PlinthBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (myUseable != null && !myUseable.enabled)
+        {
+            //если нам не принадлежит, скорее всего потому что игрок взял
+            //забываем, что он вообще был у нас
+            myUseable = null;
+        }
         if(secondsToLock > 0 && References.alarmManager.AlarmHasSounded())
         {
             secondsToLock -= Time.deltaTime;
