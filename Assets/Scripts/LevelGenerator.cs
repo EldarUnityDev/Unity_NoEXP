@@ -11,6 +11,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject antiquePrefab;
     public GameObject guardPrefab;
 
+    public List<GameObject> swarmerTypes; 
+
     public string nextLevelName;
     public int alarmLevels;
 

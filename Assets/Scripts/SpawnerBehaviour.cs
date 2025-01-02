@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerBehaviour : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    private GameObject enemyPrefab;
     public GameObject spawnPoint;
     public float secondsBetweenSpawns;
     float secondsSinceLastSpawn;
@@ -26,7 +26,8 @@ public class SpawnerBehaviour : MonoBehaviour
     void Start()
     {
         secondsSinceLastSpawn = 0;
-
+        int randomEnemyIndex = Random.Range(0, References.levelGenerator.swarmerTypes.Count);
+        enemyPrefab = References.levelGenerator.swarmerTypes[randomEnemyIndex];
     }
 
 

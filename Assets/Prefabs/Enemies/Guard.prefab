@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cbef5029c0cf5488c06375efc11cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
   ourRigidBody: {fileID: 0}
   agent: {fileID: 0}
   overchargedStep: 0

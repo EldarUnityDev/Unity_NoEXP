@@ -55,6 +55,10 @@ MonoBehaviour:
   - {fileID: 8289094323994151942, guid: 47f78ac155119454b9c17bf06daed0a0, type: 3}
   antiquePrefab: {fileID: 5294650094419998015, guid: aad6e0820ad2a544ba508d67a1fb9fd2, type: 3}
   guardPrefab: {fileID: 7380010384946030259, guid: bd9e1a86c0b871f47b42676f14acb649, type: 3}
+  swarmerTypes:
+  - {fileID: 2393625170787084490, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+  - {fileID: 4417753484291880405, guid: 2b9692c7871cf6440aea894bd8167e80, type: 3}
+  - {fileID: 7608903388908878658, guid: e3f8542d73f6f8d4eac07f0a745b43b3, type: 3}
   nextLevelName: 
   alarmLevels: 0
   fractionOfPlinthsToHaveAntiques: 0.5
