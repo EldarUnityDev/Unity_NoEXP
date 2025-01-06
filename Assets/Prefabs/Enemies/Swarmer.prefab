@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2393625170787084490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.59, y: 1.0337, z: -11.539}
+  m_LocalPosition: {x: -11.59, y: 34.59, z: -11.539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
-  deathEffectPrefab: {fileID: 2965247268660800154, guid: cf0af511041f64544a5e05afb8183cd2, type: 3}
+  deathEffectPrefab: {fileID: 4924793094549447884, guid: 4031479e2566c984cb7c9826ab61cb42, type: 3}
 --- !u!54 &3288494118887199298
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2393625170787084490}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.38
   m_Speed: 2
   m_Acceleration: 4.5
   avoidancePriority: 50
@@ -147,7 +147,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 1.9999999
+  m_Height: 0.87
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

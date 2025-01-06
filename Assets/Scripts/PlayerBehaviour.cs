@@ -13,7 +13,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     public WeaponBehaviour mainWeapon;
     public WeaponBehaviour secondaryWeapon;
-    public int score;
     private void Awake()
     {
         References.thePlayer = this; //референсы всегда надо в Awake. чтобы на старте к ним могли обратиться
@@ -21,13 +20,12 @@ public class PlayerBehaviour : MonoBehaviour
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        if(mainWeapon != null)
+        {
+            References.canvas.mainWeaponPanel.AssignWeapon(mainWeapon);
+        }
     }
 
-    public void IncreaseScore(int amount)
-    {
-        score += amount;
-        References.canvas.scoreText.text = score.ToString();
-    }
 
     // Update is called once per frame
     private void Update()
@@ -63,30 +61,31 @@ public class PlayerBehaviour : MonoBehaviour
             SwitchWeapons();
         }
 
-        if (Input.GetButtonDown("Use"))
+        //use the nearest usable
+        Useable nearestUseableSoFar = null;
+        float nearestDistance = 3; //max pickup distance
+        foreach (Useable thisUseable in References.useables)
         {
-            //use the nearest usable
-            Useable nearestUseableSoFar = null;
-            float nearestDistance = 3; //max pickup distance
-            foreach (Useable thisUseable in References.useables)
+            //how far is this one from the player?
+            float thisDistance = Vector3.Distance(transform.position, thisUseable.transform.position);
+            //is it closer than anything else we've found?
+            if (thisDistance <= nearestDistance)
             {
-                //how far is this one from the player?
-                float thisDistance = Vector3.Distance(transform.position, thisUseable.transform.position);
-                //is it closer than anything else we've found?
-                if (thisDistance <= nearestDistance)
-                {
-                    //if it's THIS now it's the closest one
-                    nearestUseableSoFar = thisUseable;
-                    nearestDistance = thisDistance;
-                }
-                //+++ challenge - check if it's in front of us
+                //if it's THIS now it's the closest one
+                nearestUseableSoFar = thisUseable;
+                nearestDistance = thisDistance;
             }
+            //+++ challenge - check if it's in front of us
+        }
 
-            if (nearestUseableSoFar != null)
+        if (nearestUseableSoFar != null)
+        {
+            //show USE prompt
+            References.canvas.usePromptSignal = true;
+            if (Input.GetButton("Use"))
             {
                 nearestUseableSoFar.Use();
             }
-
         }
     }
 
@@ -144,5 +143,10 @@ public class PlayerBehaviour : MonoBehaviour
         // weapons[i].gameObject.SetActive(true);
         //weapons[i].gameObject.SetActive(false);
 
+    }
+
+    private void OnDestroy()
+    {
+        References.scoreManager.UpdateHighScore();
     }
 }

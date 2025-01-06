@@ -14,7 +14,12 @@ public class CanvasBehaviour : MonoBehaviour
     public GameObject creditsMenu;
     public GameObject currentMenu;
 
+    public GameObject usePrompt;
+    public bool usePromptSignal;
+
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+
     public WeaponPanel mainWeaponPanel;
     public WeaponPanel secondaryWeaponPanel;
 
@@ -40,6 +45,8 @@ public class CanvasBehaviour : MonoBehaviour
             }
 
         }
+        usePrompt.SetActive(usePromptSignal);
+        usePromptSignal = false;
     }
 
     public void ShowMainMenu() //for death screen

@@ -21,33 +21,29 @@ public class ExplosionBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         secondsWeveBeenAlive += Time.deltaTime;
-        
-        transform.localScale = Vector3.Lerp(Vector3.zero, maxScale, secondsWeveBeenAlive/secondsToExist);
+
+        transform.localScale = Vector3.Lerp(Vector3.zero, maxScale, secondsWeveBeenAlive / secondsToExist);
 
         if (secondsWeveBeenAlive >= secondsToExist)
         {
             Destroy(gameObject);
         }
-        
-         /*     TOM'S SOLUTION
-        secondsWeveBeenAlive += Time.fixedDeltaTime;
-        Debug.Log(secondsWeveBeenAlive);
-        if(secondsWeveBeenAlive >= secondsToExist)
-        {
-            Destroy(gameObject);
-        }
-        */
+
+        /*     TOM'S SOLUTION
+       secondsWeveBeenAlive += Time.fixedDeltaTime;
+       Debug.Log(secondsWeveBeenAlive);
+       if(secondsWeveBeenAlive >= secondsToExist)
+       {
+           Destroy(gameObject);
+       }
+       */
     }
     private void OnTriggerEnter(Collider collision)
     {
-        GameObject theirGameObject = collision.gameObject;
-        if (theirGameObject.GetComponent<HealthSystem>() != null)
+        HealthSystem theirHealthSystem = collision.gameObject.GetComponentInParent<HealthSystem>();
+        if (theirHealthSystem != null)
         {
-            HealthSystem theirHealthSystem = collision.gameObject.GetComponent<HealthSystem>();
-            if (theirHealthSystem != null)
-            {
-                theirHealthSystem.TakeDamage(damage);
-            }
+            theirHealthSystem.TakeDamage(damage);
         }
     }
 }

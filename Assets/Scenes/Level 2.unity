@@ -681,17 +681,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 944427244507427710, guid: ce7026961163186409fdd1e0bfc59810, type: 3}
   m_PrefabInstance: {fileID: 1709045674}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &627257890 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9042482016013331711, guid: bd9e1a86c0b871f47b42676f14acb649, type: 3}
-  m_PrefabInstance: {fileID: 1602321790}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24602d6492992624cbd8090ded3ab4c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &646283608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1643,7 +1632,7 @@ MonoBehaviour:
   beingKnockedBack: 0
   chasePlayerOn: 0
   visionRange: 50
-  myWeapon: {fileID: 627257890}
+  myWeapon: {fileID: 0}
   reactionTime: 2
   camOffDelay: 0.5
   camFading: 0

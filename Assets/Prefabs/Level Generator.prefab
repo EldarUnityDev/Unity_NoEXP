@@ -50,9 +50,13 @@ MonoBehaviour:
   - {fileID: 117473847597995388, guid: d0470d2014617bf4ca244be970dc848e, type: 3}
   - {fileID: 756400597169091118, guid: 30fc41bc11400844489dcb2c92b4074b, type: 3}
   weaponPrefabs:
+  - {fileID: 8289094323994151942, guid: 76aa687f0aa3ab24fa9530ca61642b3e, type: 3}
   - {fileID: 3396834050025226793, guid: eac8cce4823c5054d97340e832cabb71, type: 3}
   - {fileID: 2289355408945043997, guid: 5d853c617a91ed444819739737dfc742, type: 3}
   - {fileID: 8289094323994151942, guid: 47f78ac155119454b9c17bf06daed0a0, type: 3}
+  - {fileID: 7049359212931842795, guid: acc28abfaad161748b9706a7ad607d5a, type: 3}
+  - {fileID: 4253613235304174352, guid: 67ce76f53c6bd724aa3a9c946c5c8799, type: 3}
+  - {fileID: 4253613235304174352, guid: 22b4dc6f7a2b2354a843bb0e5aba2fba, type: 3}
   antiquePrefab: {fileID: 5294650094419998015, guid: aad6e0820ad2a544ba508d67a1fb9fd2, type: 3}
   guardPrefab: {fileID: 7380010384946030259, guid: bd9e1a86c0b871f47b42676f14acb649, type: 3}
   swarmerTypes:

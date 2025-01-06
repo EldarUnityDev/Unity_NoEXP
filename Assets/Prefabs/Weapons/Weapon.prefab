@@ -51,6 +51,7 @@ MonoBehaviour:
   secondsBetweenShots: 1
   numberOfProjectiles: 5
   timeBeforeReload: 0
+  damage: 1
   kickAmount: 0
   magSize: 20
   currentMagSize: 0

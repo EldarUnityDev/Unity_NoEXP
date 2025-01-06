@@ -1463,6 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02b4568e8600af409832546c85f7871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   ourRigidBody: {fileID: 0}
   agent: {fileID: 0}
   overchargedStep: 0
@@ -1630,7 +1631,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 26de1b1dbc0fe2f49ba07837861ccbb1, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 03b68708a9429fd489e6d7c9425b4ce9, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1945513117
 Transform:

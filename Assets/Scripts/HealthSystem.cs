@@ -26,6 +26,10 @@ public class HealthSystem : MonoBehaviour
     {
         TakeDamage(currentHealth);
     }
+    public void ReplenishHealth()
+    {
+        currentHealth = maxHealth;
+    }
 
     //public - другие скрипты увидят эту функцию, void - не возвращает значений
     public void TakeDamage(float damageAmount)

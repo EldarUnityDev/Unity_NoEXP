@@ -246,7 +246,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6613391614747721517}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.58
   m_Speed: 7
   m_Acceleration: 4.5
   avoidancePriority: 50
@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086b20009b76dba4fa5ca7c8ea04c134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   ourRigidBody: {fileID: 0}
   agent: {fileID: 0}
   overchargedStep: 0
@@ -342,7 +343,6 @@ MonoBehaviour:
   leapCurrentTime: 0
   rechargeTime: 2
   currentRechargeTime: 0
-  testMultiplier: 0
   knockBackForce: 1200
   knockBackForceUp: 70
   myTimerSliderPrefab: {fileID: 1055153705251040967, guid: f532a6cee21db414daf9cf09abb3d5eb, type: 3}

@@ -13,6 +13,7 @@ public class WeaponBehaviour : MonoBehaviour
     public float numberOfProjectiles;
     float secondsSinceLastShot;
     public float timeBeforeReload; //for enemies
+    public int damage;
 
     public float kickAmount;
 
@@ -93,6 +94,7 @@ public class WeaponBehaviour : MonoBehaviour
                 }
                 References.cameraTools.joltVector = transform.forward * kickAmount;
                 GameObject newBullet = Instantiate(bullet, transform.position + transform.forward, transform.rotation);
+                newBullet.GetComponent<BulletBehaviour>().bulletDamage = damage;
                 if (gameObject.transform.parent.GetComponent<SniperBehaviour>())
                 {
                     newBullet.transform.parent = gameObject.transform;

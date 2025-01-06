@@ -14,7 +14,7 @@ public static class References //: MonoBehaviour - означает, что скрипт - компон
     public static List<EnemyBehaviour> allEnemies = new List<EnemyBehaviour>();
     public static List<Useable> useables = new List<Useable>();
     public static List<PlinthBehaviour> plinths = new List<PlinthBehaviour>();
-
+    public static ScoreManager scoreManager;
 
     public static AlarmManager alarmManager;
 
