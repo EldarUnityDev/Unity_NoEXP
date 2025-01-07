@@ -18,6 +18,9 @@ public class AlarmManager : MonoBehaviour
 
     public AudioSource alarmSound;
 
+    public float alarmDelay;
+    float secondsUntilAlarm;
+
     private void Awake()
     {
         References.alarmManager = this;
@@ -32,6 +35,16 @@ public class AlarmManager : MonoBehaviour
         if(AlarmHasSounded() == false && alarmSound.isPlaying)
         {
             alarmSound.Stop();
+        }
+        if(MaxAlertLevelReached() && secondsUntilAlarm > 0)
+        {
+            References.canvas.alarmCountdownText.enabled = true;
+            secondsUntilAlarm -= Time.deltaTime;
+            References.canvas.alarmCountdownText.text = secondsUntilAlarm.ToString("N1");
+        }
+        else
+        {
+            References.canvas.alarmCountdownText.enabled = false;
         }
     }
     public void StopTheAlarm()
@@ -54,7 +67,7 @@ public class AlarmManager : MonoBehaviour
             alertPips.Add(newPip.GetComponent<Image>());
         }
         alertPips.Reverse(); //чтобы заполнялись снизу вверх
-        
+        secondsUntilAlarm = alarmDelay;
     }
 
     public void RaiseAlertLevel()
@@ -66,13 +79,19 @@ public class AlarmManager : MonoBehaviour
     public void SoundTheAlarm()
     {
         alertLevel = maxAlertLevel;
+        secondsUntilAlarm = 0;
         UpdatePips();
+    }
+
+    public bool MaxAlertLevelReached()
+    {
+        if (maxAlertLevel == 0) { return false; } //чтобы на старте не пищало, пока ещё не всё подгрузилось
+        return alertLevel >= maxAlertLevel;
     }
 
     public bool AlarmHasSounded()
     {
-        if(maxAlertLevel == 0) { return false; } //чтобы на старте не пищало, пока ещё не всё подгрузилось
-        return alertLevel >= maxAlertLevel;
+        return MaxAlertLevelReached() && secondsUntilAlarm <= 0;
     }
 
     void UpdatePips()
@@ -88,5 +107,4 @@ public class AlarmManager : MonoBehaviour
             }
         }
     }
-
 }

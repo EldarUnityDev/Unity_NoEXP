@@ -64,7 +64,7 @@ MonoBehaviour:
   - {fileID: 4417753484291880405, guid: 2b9692c7871cf6440aea894bd8167e80, type: 3}
   - {fileID: 7608903388908878658, guid: e3f8542d73f6f8d4eac07f0a745b43b3, type: 3}
   nextLevelName: 
-  alarmLevels: 0
+  alarmLevels: 3
   fractionOfPlinthsToHaveAntiques: 0.5
   numberOfGuardsToCreate: 1
   numberOfSpawnersToCreate: 2

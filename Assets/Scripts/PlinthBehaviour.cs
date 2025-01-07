@@ -11,8 +11,6 @@ public class PlinthBehaviour : MonoBehaviour
     public Transform spotForItem;
     public GameObject cage;
 
-    public float secondsToLock;
-
     private void OnEnable()
     {
         References.plinths.Add(this);
@@ -22,7 +20,7 @@ public class PlinthBehaviour : MonoBehaviour
         References.plinths.Remove(this);
     }
 
-    public void AssignItem (GameObject item)
+    public void AssignItem(GameObject item)
     {
         myUseable = item.GetComponent<Useable>();
         myLabel.text = myUseable.displayName;
@@ -38,18 +36,14 @@ public class PlinthBehaviour : MonoBehaviour
             //забываем, что он вообще был у нас
             myUseable = null;
         }
-        if(secondsToLock > 0 && References.alarmManager.AlarmHasSounded())
+        if (References.alarmManager.AlarmHasSounded() && !cage.activeInHierarchy)
         {
-            secondsToLock -= Time.deltaTime;
-            if(secondsToLock <= 0)
+            cage.SetActive(true);
+            myLabel.text = "ALARM";
+            //если экспонат существует и игрок его ещё не взял
+            if (myUseable != null && myUseable.enabled)
             {
-                cage.SetActive(true);
-                myLabel.text = "ALARM";
-                //если экспонат существует и игрок его ещё не взял
-                if (myUseable != null && myUseable.enabled)
-                {
-                    Destroy(myUseable.gameObject);
-                }
+                Destroy(myUseable.gameObject);
             }
         }
     }
