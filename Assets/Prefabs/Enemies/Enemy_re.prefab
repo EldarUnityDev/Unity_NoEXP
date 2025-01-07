@@ -323,6 +323,9 @@ MonoBehaviour:
   maxHealth: 3
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 2965247268660800154, guid: cf0af511041f64544a5e05afb8183cd2, type: 3}
+  bounty: 100
+  chanceOfBounty: 0.2
+  secondsForBoutyToDecay: 10
 --- !u!114 &6581609217926314917
 MonoBehaviour:
   m_ObjectHideFlags: 0

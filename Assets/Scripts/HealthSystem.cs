@@ -14,12 +14,28 @@ public class HealthSystem : MonoBehaviour
 
     HealthBarBehaviour myHealthBar;
 
+    public float bounty;
+    public float chanceOfBounty;
+    public float secondsForBoutyToDecay;
+    float decayRate;
+
     private void Start()
     {
         currentHealth = maxHealth;
         //Create our health panel on the canvas
         GameObject healthBarObject = Instantiate(healthBarPrefab, References.canvas.transform);
         myHealthBar = healthBarObject.GetComponent<HealthBarBehaviour>();
+
+        if(Random.value > chanceOfBounty) //у всех по умолчанию есть награда, но мы её стираем
+        {
+            bounty = 0;
+        }
+        if(secondsForBoutyToDecay != 0)
+        {
+            decayRate = bounty / secondsForBoutyToDecay;
+        }
+
+        myHealthBar.bountyText.text = bounty.ToString();
     }
 
     public void KillMe()
@@ -43,6 +59,7 @@ public class HealthSystem : MonoBehaviour
                 {
                     Instantiate(deathEffectPrefab, transform.position, transform.rotation);
                 }
+                References.scoreManager.IncreaseScore(Mathf.FloorToInt(bounty));
                 Destroy(gameObject);
             }
         }
@@ -66,7 +83,17 @@ public class HealthSystem : MonoBehaviour
         //функция WorldToScreenPoint - конвертирует 3д в 2д
         myHealthBar.transform.position = Camera.main.WorldToScreenPoint(transform.position + Vector3.up * 1.5f);
 
+        if (bounty > 0) //если есть награда
+        {
+            bounty -= decayRate * Time.deltaTime;
+            myHealthBar.bountyText.enabled = true;
+            myHealthBar.bountyText.text = Mathf.FloorToInt(bounty).ToString();
 
+        }
+        else            //если нет награды
+        {
+            myHealthBar.bountyText.enabled = false;
+        }
     }
 
 

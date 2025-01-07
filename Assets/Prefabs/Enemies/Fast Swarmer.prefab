@@ -133,6 +133,14 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: chanceOfBounty
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: secondsForBoutyToDecay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6800555228803669175, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_IsActive
       value: 0

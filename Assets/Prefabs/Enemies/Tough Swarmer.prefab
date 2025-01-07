@@ -41,6 +41,10 @@ PrefabInstance:
       value: 0.57
       objectReference: {fileID: 0}
     - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: bounty
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: maxHealth
       value: 7
       objectReference: {fileID: 0}
@@ -48,6 +52,10 @@ PrefabInstance:
       propertyPath: deathEffectPrefab
       value: 
       objectReference: {fileID: 4924793094549447884, guid: 4031479e2566c984cb7c9826ab61cb42, type: 3}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: secondsForBoutyToDecay
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.59
