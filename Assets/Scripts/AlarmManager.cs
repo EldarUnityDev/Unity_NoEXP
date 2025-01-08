@@ -20,6 +20,7 @@ public class AlarmManager : MonoBehaviour
 
     public float alarmDelay;
     float secondsUntilAlarm;
+    public bool enemiesHaveSpawned;
 
     private void Awake()
     {
@@ -68,6 +69,7 @@ public class AlarmManager : MonoBehaviour
         }
         alertPips.Reverse(); //чтобы заполнялись снизу вверх
         secondsUntilAlarm = alarmDelay;
+        References.alarmManager.enemiesHaveSpawned = false;
     }
 
     public void RaiseAlertLevel()

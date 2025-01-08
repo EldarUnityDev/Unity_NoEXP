@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class StartingPosition : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        References.startingPosition = this;
+    }
     void Start()
     {
         References.thePlayer.transform.position = transform.position;

@@ -38,6 +38,7 @@ public class SpawnerBehaviour : MonoBehaviour
             secondsSinceLastSpawn += Time.fixedDeltaTime;
             if (secondsSinceLastSpawn >= secondsBetweenSpawns)
             {
+                References.alarmManager.enemiesHaveSpawned = true;
                 Instantiate(enemyPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
                 secondsSinceLastSpawn = 0;
                 enemiesToSpawn--;

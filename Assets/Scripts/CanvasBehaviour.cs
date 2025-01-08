@@ -9,13 +9,15 @@ using UnityEngine.UI;
 
 public class CanvasBehaviour : MonoBehaviour
 {
-    public SceneAsset firstScene;
     public GameObject mainMenu;
     public GameObject creditsMenu;
     public GameObject currentMenu;
+    public GameObject scoreMenu;
 
     public GameObject usePrompt;
     public bool usePromptSignal;
+
+    public Transform gameUIParent;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
@@ -51,9 +53,13 @@ public class CanvasBehaviour : MonoBehaviour
         usePromptSignal = false;
     }
 
-    public void ShowMainMenu() //for death screen
+    public void ShowMainMenu()
     {
         ShowMenu(mainMenu);
+    }
+    public void ShowScoreMenu() //for death screen
+    {
+        ShowMenu(scoreMenu);
     }
 
     public void HideMenu()
@@ -77,13 +83,7 @@ public class CanvasBehaviour : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-    public void StartNewGame()
-    {
-        SceneManager.LoadScene(firstScene.name);
-        Time.timeScale = 1;
-
-
-    }
+   
     public void Quit()
     {
         Application.Quit();

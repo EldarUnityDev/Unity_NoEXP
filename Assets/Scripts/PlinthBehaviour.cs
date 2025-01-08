@@ -22,7 +22,8 @@ public class PlinthBehaviour : MonoBehaviour
 
     public void AssignItem(GameObject item)
     {
-        myUseable = item.GetComponent<Useable>();
+        myUseable = item.GetComponent<Useable>(); //получаем информацию о том, что на нас лежит
+        myUseable.alarmed = true; //подключаем сигнализацию
         myLabel.text = myUseable.displayName;
         myUseable.transform.position = spotForItem.transform.position;
         myUseable.transform.rotation = spotForItem.transform.rotation;

@@ -63,7 +63,6 @@ public class WeaponBehaviour : MonoBehaviour
 
     public void BePickedUpByPlayer()
     {
-        References.alarmManager.RaiseAlertLevel();
         //add to player's internal list
         transform.position = References.thePlayer.transform.position;
         transform.rotation = References.thePlayer.transform.rotation;

@@ -9,10 +9,15 @@ public class Useable : MonoBehaviour
     public UnityEvent whenUsed;
     public bool canBeReused;
     public string displayName;
-
+    public bool alarmed;
     public void Use()
     {
         whenUsed.Invoke(); //можно привязать в инспекторе к любому действию/функции
+        if (alarmed)
+        {
+            References.alarmManager.RaiseAlertLevel();
+            alarmed = false;
+        }
         if(canBeReused == false)
         {
             enabled = false;

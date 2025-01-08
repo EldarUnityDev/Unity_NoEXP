@@ -148,3 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67464affa19dd6a44833561dc2c3fc72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fractionToReplenish: 1

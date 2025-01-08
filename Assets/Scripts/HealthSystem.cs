@@ -11,6 +11,7 @@ public class HealthSystem : MonoBehaviour
 
     public GameObject healthBarPrefab;
     public GameObject deathEffectPrefab;
+    public GameObject lootDrop;
 
     HealthBarBehaviour myHealthBar;
 
@@ -19,11 +20,12 @@ public class HealthSystem : MonoBehaviour
     public float secondsForBoutyToDecay;
     float decayRate;
 
+    public bool showScoreMenu;
     private void Start()
     {
         currentHealth = maxHealth;
         //Create our health panel on the canvas
-        GameObject healthBarObject = Instantiate(healthBarPrefab, References.canvas.transform);
+        GameObject healthBarObject = Instantiate(healthBarPrefab, References.canvas.gameUIParent);
         myHealthBar = healthBarObject.GetComponent<HealthBarBehaviour>();
 
         if(Random.value > chanceOfBounty) //у всех по умолчанию есть награда, но мы её стираем
@@ -59,7 +61,15 @@ public class HealthSystem : MonoBehaviour
                 {
                     Instantiate(deathEffectPrefab, transform.position, transform.rotation);
                 }
+                if(lootDrop != null)
+                {
+                    Instantiate(lootDrop, transform.position, transform.rotation);
+                }
                 References.scoreManager.IncreaseScore(Mathf.FloorToInt(bounty));
+                if (showScoreMenu)
+                {
+                    References.canvas.ShowScoreMenu();
+                }
                 Destroy(gameObject);
             }
         }

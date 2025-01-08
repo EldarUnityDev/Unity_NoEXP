@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AmmoPickup : MonoBehaviour
 {
+    public float fractionToReplenish;
+
     public void ReplenishAmmo()
     {
         if (References.thePlayer != null)
@@ -17,7 +19,8 @@ public class AmmoPickup : MonoBehaviour
     {
         if(weapon != null)
         {
-            weapon.currentMagSize = weapon.magSize;
+            weapon.currentMagSize += Mathf.RoundToInt(weapon.magSize * fractionToReplenish);
+            weapon.currentMagSize = Mathf.Min(weapon.currentMagSize, weapon.magSize);
         }
     }
 }

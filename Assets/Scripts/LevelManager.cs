@@ -29,7 +29,12 @@ public class LevelManager : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Startup");
+        SceneManager.LoadScene("Start Game");
+        Time.timeScale = 1;
+    }
+    public void StartTurorial()
+    {
+        SceneManager.LoadScene("Start Tutorial");
         Time.timeScale = 1;
     }
 
@@ -37,28 +42,43 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         //if all enemies are dead go to next level
-        if (References.allEnemies.Count == 0)
+        if (References.allEnemies.Count == 0 && References.alarmManager.enemiesHaveSpawned)
         {
-            secondsBeforeNextLevel -= Time.deltaTime;
-
-            //stop the alarm
-            References.alarmManager.StopTheAlarm();
-
-            if (secondsBeforeNextLevel <= 0)
+            if (secondsBeforeNextLevel > 0)
             {
-                SceneManager.LoadScene(References.levelGenerator.nextLevelName);
+                secondsBeforeNextLevel -= Time.deltaTime;
+
+                //stop the alarm
+                References.alarmManager.StopTheAlarm();
+
+                if (secondsBeforeNextLevel <= 0)
+                {
+                    if (References.levelGenerator.showMenuWhenDone)
+                    {
+                        References.canvas.ShowMainMenu();
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(References.levelGenerator.nextLevelName);
+
+                    }
+
+                }
             }
         }
         else
         {
             secondsBeforeNextLevel = graceTimeBeforeNextLevel;
         }
+
+
+        //When we are dead
         if(References.thePlayer == null && shownDeathMenu == false)
         {
             secondsBeforeShowingDeathMenu -= Time.deltaTime;
             if(secondsBeforeShowingDeathMenu <= 0)
             {
-                References.canvas.ShowMainMenu();
+                References.canvas.ShowScoreMenu();
                 shownDeathMenu = true;
             }
         }

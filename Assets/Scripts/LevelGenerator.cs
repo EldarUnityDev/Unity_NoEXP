@@ -23,6 +23,8 @@ public class LevelGenerator : MonoBehaviour
     public int widthInChunks;
     public int lengthInChunks;
 
+    public bool showMenuWhenDone;
+
     private void Awake()
     {
         References.levelGenerator = this;
@@ -42,8 +44,8 @@ public class LevelGenerator : MonoBehaviour
                 Instantiate(randomChunkType, spawnPosition, Quaternion.identity);
             }
         }
-        int numberOfThingsToPlace = References.plinths.Count;
-        int NumberOfAntiquesToPlace = Mathf.RoundToInt(numberOfThingsToPlace * fractionOfPlinthsToHaveAntiques);
+        float numberOfThingsToPlace = References.plinths.Count;
+        float NumberOfAntiquesToPlace = Mathf.RoundToInt(numberOfThingsToPlace * fractionOfPlinthsToHaveAntiques);
 
 
         foreach (PlinthBehaviour plinth in References.plinths)
@@ -78,7 +80,7 @@ public class LevelGenerator : MonoBehaviour
         foreach (NavPoint nav in References.navPoints)
         {
             //is it far enough from the player?
-            if(Vector3.Distance(nav.transform.position, References.thePlayer.transform.position) >= minDistanceFromPlayer)
+            if(Vector3.Distance(nav.transform.position, References.startingPosition.transform.position) >= minDistanceFromPlayer)
             {
                 possibleSpots.Add(nav);
             }

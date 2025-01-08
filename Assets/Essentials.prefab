@@ -89,11 +89,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b887e7cc241d248a38636526ccfa45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstScene: {fileID: 102900000, guid: 4ceeaf09d2a260847a0b2ee44ed7c62f, type: 3}
   mainMenu: {fileID: 599044925860669883}
   creditsMenu: {fileID: 5569596949946238573}
   currentMenu: {fileID: 5569596949946238573}
+  scoreMenu: {fileID: 0}
+  usePrompt: {fileID: 0}
+  usePromptSignal: 0
+  gameUIParent: {fileID: 0}
   scoreText: {fileID: 2605928361868821468}
+  highScoreText: {fileID: 0}
+  recentScoreText: {fileID: 0}
+  alarmCountdownText: {fileID: 0}
+  mainWeaponPanel: {fileID: 0}
+  secondaryWeaponPanel: {fileID: 0}
 --- !u!114 &3648276680944075161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1502033427770515119
 RectTransform:
   m_ObjectHideFlags: 0
@@ -438,9 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  weapons: []
-  selectedWeaponIndex: 0
-  score: 0
+  mainWeapon: {fileID: 0}
+  secondaryWeapon: {fileID: 0}
 --- !u!114 &3480414145199436739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +463,11 @@ MonoBehaviour:
   maxHealth: 5
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 0}
+  lootDrop: {fileID: 0}
+  bounty: 0
+  chanceOfBounty: 0
+  secondsForBoutyToDecay: 0
+  showScoreMenu: 0
 --- !u!54 &3945387994373704207
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -957,6 +969,8 @@ MonoBehaviour:
   emptyPip: {fileID: 21300000, guid: 18f73c061e327e24eaf3ba136a4a0694, type: 3}
   filledPip: {fileID: 21300000, guid: 99803574899c4924a98e028aa48b853d, type: 3}
   alarmSound: {fileID: 0}
+  alarmDelay: 0
+  enemiesHaveSpawned: 0
 --- !u!82 &5000496088632159899
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1470,7 +1484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alarmSounded: 0
-  nextLevelName: ZLevelGeneration
   firstLevelName: ZLevelGeneration
   secondsBeforeNextLevel: 1
   graceTimeBeforeNextLevel: 1

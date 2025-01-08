@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class ExitAreaScript : MonoBehaviour
 {
-    public SceneAsset nextLevel;
+    //public SceneAsset nextLevel;
     public float secondsBeforeNextLevel;
     public float graceTimeAtEndOfLevel;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class ExitAreaScript : MonoBehaviour
             if (secondsBeforeNextLevel <= 0)
             {
                 // go to the next level
-                SceneManager.LoadScene(nextLevel.name);
+              //  SceneManager.LoadScene(nextLevel.name);
             }
         }
         else
