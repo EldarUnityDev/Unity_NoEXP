@@ -16,12 +16,6 @@ public class WeaponPanel : MonoBehaviour
         weaponName.text = weapon.GetComponent<Useable>().displayName;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

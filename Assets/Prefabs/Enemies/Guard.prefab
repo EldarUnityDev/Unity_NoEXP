@@ -228,6 +228,11 @@ MonoBehaviour:
   maxHealth: 10
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 1061724170041430318, guid: 86eba1c3f094ed44ea25f536827016ea, type: 3}
+  lootDrop: {fileID: 0}
+  bounty: 0
+  chanceOfBounty: 0
+  secondsForBoutyToDecay: 0
+  showScoreMenu: 0
 --- !u!114 &2165362849234612203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +262,7 @@ MonoBehaviour:
         m_CallState: 2
   canBeReused: 0
   displayName: 
+  alarmed: 0
 --- !u!1 &8705275745446632288
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +379,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7300294247230067677}
     m_Modifications:
     - target: {fileID: 2651382888957450664, guid: 8af7a10c64b171640829b70de9864b6b, type: 3}
+      propertyPath: magSize
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651382888957450664, guid: 8af7a10c64b171640829b70de9864b6b, type: 3}
       propertyPath: accuracy
       value: 100
       objectReference: {fileID: 0}
@@ -382,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2651382888957450664, guid: 8af7a10c64b171640829b70de9864b6b, type: 3}
       propertyPath: secondsBetweenShots
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4608509687696430004, guid: 8af7a10c64b171640829b70de9864b6b, type: 3}
       propertyPath: m_LocalScale.x

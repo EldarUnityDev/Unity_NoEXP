@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 7575044384882337673}
   - component: {fileID: 3926757002486424141}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Pounce Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

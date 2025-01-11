@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7049359212931842795}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.51, y: 1, z: -6.7}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55,6 +55,7 @@ MonoBehaviour:
   kickAmount: 20
   magSize: 12
   currentMagSize: 0
+  forwardPositionCorrection: {x: 0, y: 0, z: 0}
   magUIPrefab: {fileID: 668995088355488914, guid: 7461b147f251dc54b9d7c9c027616eaf, type: 3}
 --- !u!114 &2596357748719297045
 MonoBehaviour:
@@ -85,6 +86,7 @@ MonoBehaviour:
         m_CallState: 2
   canBeReused: 0
   displayName: 
+  alarmed: 0
 --- !u!1 &7773084834534975209
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 7773084834534975209}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.66399956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2798885, y: 0.35312113, z: 0.2798885}
   m_ConstrainProportionsScale: 0
   m_Children: []

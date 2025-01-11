@@ -19,6 +19,8 @@ public class WeaponBehaviour : MonoBehaviour
 
     public int magSize;
     public int currentMagSize;
+    public int magNumber;
+    public bool autoMode;
 
     public GameObject magUIPrefab;
     MagBarBehaviour myMagBar;
@@ -42,11 +44,12 @@ public class WeaponBehaviour : MonoBehaviour
         {
             if (gameObject.transform.parent.GetComponent<PlayerBehaviour>()) //а то и врагов перезаряжает
             {
-                if (Input.GetButtonDown("Fire1"))
+                if (Input.GetButtonDown("Reload"))
                 {
-                    if (currentMagSize <= 0)
+                    if (currentMagSize <= 0 && magNumber > 0)
                     {
                         ReloadMag();
+                        ReduceMagNumber();
                     }
 
                 }
@@ -64,8 +67,8 @@ public class WeaponBehaviour : MonoBehaviour
     public void BePickedUpByPlayer()
     {
         //add to player's internal list
-        transform.position = References.thePlayer.transform.position;
         transform.rotation = References.thePlayer.transform.rotation;
+        transform.position = References.thePlayer.hands.transform.position;
         //Parent it to us - attach it so it moves with us
         transform.SetParent(References.thePlayer.transform);
         //чтобы старое и новое оружие одновременно не оказывалось в руках
@@ -76,6 +79,10 @@ public class WeaponBehaviour : MonoBehaviour
     {
         currentMagSize = magSize;
         secondsSinceLastShot = secondsBetweenShots;
+    }
+    public void ReduceMagNumber()
+    {
+        magNumber--;
     }
     public void Fire(Vector3 targetPosition)
     {

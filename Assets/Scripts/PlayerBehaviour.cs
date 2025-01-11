@@ -13,6 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public WeaponBehaviour mainWeapon;
     public WeaponBehaviour secondaryWeapon;
+    public Transform hands;
     private void Awake()
     {
         References.thePlayer = this; //референсы всегда надо в Awake. чтобы на старте к ним могли обратиться
@@ -51,9 +52,20 @@ public class PlayerBehaviour : MonoBehaviour
 
         Vector3 lookAtPosition = cursorPosition; //можно удалить?
         transform.LookAt(lookAtPosition);
-        if (mainWeapon != null && Input.GetButton("Fire1"))
+        // if (mainWeapon != null && Input.GetButton("Fire1"))
+        if (mainWeapon != null)
         {
-            mainWeapon.Fire(cursorPosition);
+            //автоматическая стрельба
+            if (mainWeapon.autoMode && Input.GetButton("Fire1")) 
+            {
+                mainWeapon.Fire(cursorPosition);
+            }
+            //стрельба по 1 выстрелу
+            if (!mainWeapon.autoMode && Input.GetButtonDown("Fire1"))
+            {
+                mainWeapon.Fire(cursorPosition);
+            }
+
         }
 
         if (Input.GetButtonDown("Fire2")) //не всегда работает
@@ -140,9 +152,6 @@ public class PlayerBehaviour : MonoBehaviour
             SetAsMainWeapon(secondaryWeapon);
             SetAsSecondaryWeapon(oldMainWeapon);
         }
-        // weapons[i].gameObject.SetActive(true);
-        //weapons[i].gameObject.SetActive(false);
-
     }
 
     private void OnDestroy()

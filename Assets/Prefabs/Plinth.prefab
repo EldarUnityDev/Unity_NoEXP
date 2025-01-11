@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
+  m_fontSize: 0.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -496,7 +496,6 @@ MonoBehaviour:
   myLabel: {fileID: 8638688734296412568}
   spotForItem: {fileID: 9117442075797800684}
   cage: {fileID: 2194775049447823882}
-  secondsToLock: 2
 --- !u!208 &1414965971615083114
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -657,7 +656,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.6193, y: 0.03}
-  m_SizeDelta: {x: 1.2833, y: 0.4929}
+  m_SizeDelta: {x: 1.83, y: 0.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3684473266506568389
 Canvas:
@@ -785,7 +784,7 @@ Transform:
   m_GameObject: {fileID: 8764708295308620840}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.307, y: 0.438, z: 0}
+  m_LocalPosition: {x: 0.3, y: 0.438, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
