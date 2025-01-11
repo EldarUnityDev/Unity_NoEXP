@@ -14,6 +14,7 @@ public class GuardBehaviour : EnemyBehaviour
     public Light myLighty;
     public float turnSpeed;
     public WeaponBehaviour myWeapon;
+    public GameObject myLight;
 
     public float reactionTime;
     float secondsSeeingPlayer;
@@ -51,9 +52,25 @@ public class GuardBehaviour : EnemyBehaviour
         {
             GetComponent<HealthSystem>().KillMe();
             References.alarmManager.RaiseAlertLevel();
-
         }
     }
+    public void StealMyLight()
+    {
+        if (myLight != null)
+        {
+            //Destroy(myLight);
+            myLight.transform.parent = References.thePlayer.transform;
+            myLight.transform.position = References.thePlayer.transform.position + new Vector3 (0.75f,0,0);
+            myLight.transform.rotation = Quaternion.Euler(GetRandomRotation(), GetRandomRotation(), GetRandomRotation());
+            //set the record to player's loot
+        }
+    }
+
+    float GetRandomRotation()
+    {
+        return Random.Range(-180, +180);
+    }
+
     protected override void Update()
     {
         //всеобщая тревога

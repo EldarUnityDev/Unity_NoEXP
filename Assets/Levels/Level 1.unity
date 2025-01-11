@@ -342,6 +342,10 @@ PrefabInstance:
       value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 6561905863484464386, guid: 367227dd8aa834244bde7eb7633a233d, type: 3}
+      propertyPath: numberOfGuardsToCreate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561905863484464386, guid: 367227dd8aa834244bde7eb7633a233d, type: 3}
       propertyPath: swarmerTypes.Array.size
       value: 1
       objectReference: {fileID: 0}

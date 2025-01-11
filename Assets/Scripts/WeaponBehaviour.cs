@@ -51,7 +51,6 @@ public class WeaponBehaviour : MonoBehaviour
                         ReloadMag();
                         ReduceMagNumber();
                     }
-
                 }
             }
         }
