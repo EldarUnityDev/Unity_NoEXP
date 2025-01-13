@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene(firstLevelName);
+        //SceneManager.LoadScene(firstLevelName);
         secondsBeforeNextLevel = 3;
         graceTimeBeforeNextLevel = 3;
         shownDeathMenu = false;
