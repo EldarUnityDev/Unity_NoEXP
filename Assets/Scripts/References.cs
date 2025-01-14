@@ -19,7 +19,7 @@ public static class References //: MonoBehaviour - означает, что скрипт - компон
 
     public static AlarmManager alarmManager;
 
-    public static LevelManager levelManager;
+    public static MyLevelManager myLevelManager;
     public static LevelGenerator levelGenerator;
     
     public static List<NavPoint> navPoints = new List<NavPoint>();

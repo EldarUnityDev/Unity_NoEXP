@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class MyLevelManager : MonoBehaviour
 {
     public bool alarmSounded;
     public string firstLevelName;
@@ -16,12 +16,12 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        //References.levelManager = this;
+        References.myLevelManager = this;
     }
     // Start is called before the first frame update
     void Start()
     {
-        //SceneManager.LoadScene(firstLevelName);
+       // SceneManager.LoadScene(firstLevelName);
         secondsBeforeNextLevel = 3;
         graceTimeBeforeNextLevel = 3;
         shownDeathMenu = false;

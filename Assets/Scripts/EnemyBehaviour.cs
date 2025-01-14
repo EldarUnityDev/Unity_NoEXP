@@ -20,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
     public bool beingKnockedBack; //для запуска таймера на выключение
 
     public bool chasePlayerOn;
-
+    public bool explodeOnTouch;
 
     protected void OnEnable()
     {
@@ -71,9 +71,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<PlayerBehaviour>() != null)
+        if (explodeOnTouch)
         {
-            GetComponent<HealthSystem>().KillMe();
+            if (collision.gameObject.GetComponent<PlayerBehaviour>() != null)
+            {
+                GetComponent<HealthSystem>().KillMe();
+            }
         }
     }
 

@@ -26,8 +26,8 @@ public class SpawnerBehaviour : MonoBehaviour
     void Start()
     {
         secondsSinceLastSpawn = 0;
-        int randomEnemyIndex = Random.Range(0, References.levelGenerator.swarmerTypes.Count);
-        enemyPrefab = References.levelGenerator.swarmerTypes[randomEnemyIndex];
+        //int randomEnemyIndex = Random.Range(0, References.levelGenerator.swarmerTypes.Count);
+        //enemyPrefab = References.levelGenerator.swarmerTypes[randomEnemyIndex];
     }
 
 

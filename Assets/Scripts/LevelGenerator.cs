@@ -103,9 +103,4 @@ public class LevelGenerator : MonoBehaviour
         References.alarmManager.SetUpLevel(alarmLevels);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
