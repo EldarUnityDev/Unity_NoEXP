@@ -39,11 +39,6 @@ public class SniperBehaviour : EnemyBehaviour
         shotsFired = false;
     }
 
-    protected Vector3 PlayerPosition()
-    {
-        return References.thePlayer.transform.position;
-    }
-
     protected override void Update()
     {
         //без этого условия при смерти игрока у врагов будет ошибка

@@ -138,6 +138,10 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: deathEffectPrefab
+      value: 
+      objectReference: {fileID: 4924793094549447884, guid: 4031479e2566c984cb7c9826ab61cb42, type: 3}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: secondsForBoutyToDecay
       value: 5
       objectReference: {fileID: 0}
@@ -147,15 +151,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.59
+      value: 12.711685
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0337
+      value: -30.58508
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.539
+      value: 24.662632
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -163,15 +167,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -188,6 +192,10 @@ PrefabInstance:
     - target: {fileID: 8048882879232505482, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: speed
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048882879232505482, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: explodeOnTouch
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

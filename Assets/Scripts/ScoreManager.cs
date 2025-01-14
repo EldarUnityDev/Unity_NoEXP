@@ -29,17 +29,7 @@ public class ScoreManager : MonoBehaviour
         References.canvas.recentScoreText.text = "+" + recentScore.ToString();
 
     }
-    public void UpdateHighScore()
-    {
-        if (score > highScore)
-        {
-            highScore = score;
-            References.canvas.highScoreText.text = highScore.ToString();
-            //save it to disc
-            PlayerPrefs.SetInt("highScore", highScore);
-            PlayerPrefs.Save();
-        }
-    }
+
     private void Update()
     {
         secondsLeftToShowRecentScore -= Time.deltaTime;

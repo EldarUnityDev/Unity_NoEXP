@@ -41,11 +41,6 @@ public class GuardBehaviour : EnemyBehaviour
         agent.destination = References.navPoints[randomNavPointIndex].transform.position;
     }
 
-    protected Vector3 PlayerPosition()
-    {
-        return References.thePlayer.transform.position;
-    }
-
     public void KnockoutAttempt()
     {
         if(References.alarmManager.AlarmHasSounded() == false)

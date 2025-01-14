@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public bool killAllToWin; //не обязательно переходить на следующий уровень, когда всех убил
     public bool alarmSounded;
-    public string firstLevelName;
+  //  public string firstLevelName; //грузится как только нажимаем PLAY
     public float secondsBeforeNextLevel;
     public float graceTimeBeforeNextLevel;
 
@@ -29,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Start Game");
+        SceneManager.LoadScene("Level 4");
         Time.timeScale = 1;
     }
     public void StartTurorial()
@@ -38,39 +39,40 @@ public class LevelManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if all enemies are dead go to next level
-        if (References.allEnemies.Count == 0 && References.alarmManager.enemiesHaveSpawned)
+        //!!given that the enemies HAVE actually spawned already
+        if (killAllToWin)
         {
-            if (secondsBeforeNextLevel > 0)
+            if (References.allEnemies.Count == 0 && References.alarmManager.enemiesHaveSpawned)
             {
-                secondsBeforeNextLevel -= Time.deltaTime;
-
-                //stop the alarm
-                References.alarmManager.StopTheAlarm();
-
-                if (secondsBeforeNextLevel <= 0)
+                if (secondsBeforeNextLevel > 0)
                 {
-                    if (References.levelGenerator.showMenuWhenDone)
-                    {
-                        References.canvas.ShowMainMenu();
-                    }
-                    else
-                    {
-                        SceneManager.LoadScene(References.levelGenerator.nextLevelName);
+                    secondsBeforeNextLevel -= Time.deltaTime;
 
-                    }
+                    //stop the alarm
+                    References.alarmManager.StopTheAlarm();
 
+                    if (secondsBeforeNextLevel <= 0)
+                    {
+                        if (References.levelGenerator.showMenuWhenDone)
+                        {
+                            References.canvas.ShowMainMenu();
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene(References.levelGenerator.nextLevelName);
+
+                        }
+                    }
                 }
             }
+            else
+            {
+                secondsBeforeNextLevel = graceTimeBeforeNextLevel;
+            }
         }
-        else
-        {
-            secondsBeforeNextLevel = graceTimeBeforeNextLevel;
-        }
-
 
         //When we are dead
         if(References.thePlayer == null && shownDeathMenu == false)

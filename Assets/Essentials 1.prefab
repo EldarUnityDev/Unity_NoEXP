@@ -1717,8 +1717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d66caf1418953614da339edb2c4bfee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killAllToWin: 1
   alarmSounded: 0
-  firstLevelName: Pounce n Plinths
   secondsBeforeNextLevel: 0
   graceTimeBeforeNextLevel: 3
   secondsBeforeShowingDeathMenu: 1

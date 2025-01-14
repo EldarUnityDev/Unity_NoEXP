@@ -27,7 +27,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     private void Update()
     {
@@ -48,11 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
         //или по-другому вот_по_этому_лучу.найди¬ектор(вот“акойƒлины).
         Vector3 cursorPosition = rayFromCameraToCursor.GetPoint(distanceFromCamera);
 
-
-
-        Vector3 lookAtPosition = cursorPosition; //можно удалить?
-        transform.LookAt(lookAtPosition);
-        // if (mainWeapon != null && Input.GetButton("Fire1"))
+        transform.LookAt(cursorPosition);
         if (mainWeapon != null)
         {
             //автоматическа€ стрельба
@@ -65,7 +60,6 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 mainWeapon.Fire(cursorPosition);
             }
-
         }
 
         if (Input.GetButtonDown("Fire2")) //не всегда работает
@@ -126,8 +120,6 @@ public class PlayerBehaviour : MonoBehaviour
 
 
             }
-
-
         }
     }
 
@@ -152,10 +144,5 @@ public class PlayerBehaviour : MonoBehaviour
             SetAsMainWeapon(secondaryWeapon);
             SetAsSecondaryWeapon(oldMainWeapon);
         }
-    }
-
-    private void OnDestroy()
-    {
-        References.scoreManager.UpdateHighScore();
     }
 }

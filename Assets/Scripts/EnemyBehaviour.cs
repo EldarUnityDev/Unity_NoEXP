@@ -16,7 +16,6 @@ public class EnemyBehaviour : MonoBehaviour
     public bool knockBackOn; // можно толкать
     public float knockbackTime; // время до отключения 
     public float knockbackCurrentTime; //текущее время
-
     public bool beingKnockedBack; //для запуска таймера на выключение
 
     public bool chasePlayerOn;
@@ -43,12 +42,26 @@ public class EnemyBehaviour : MonoBehaviour
         overchargedStep = 0;
         knockbackCurrentTime = 0;
         beingKnockedBack = false;
-        chasePlayerOn = true;
+        //chasePlayerOn = true;
 
     }
-
+    protected Vector3 PlayerPosition()
+    {
+        return References.thePlayer.transform.position;
+    }
     protected virtual void Update()
     {
+        if(References.thePlayer != null)
+        {
+            Vector3 vectorToPlayer = PlayerPosition() - transform.position;
+
+            // if can see player, chase
+            if (!Physics.Raycast(transform.position, vectorToPlayer, vectorToPlayer.magnitude, References.wallsLayer))
+            {
+                chasePlayerOn = true;
+            }
+        }
+
         if (chasePlayerOn && !beingKnockedBack) //постоянно смотрим и идем к игроку
         {
             ChasePlayer();
