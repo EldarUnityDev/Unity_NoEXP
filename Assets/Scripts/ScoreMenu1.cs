@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ScoreMenu : MonoBehaviour
+public class ScoreMenu1 : MonoBehaviour
 {
     public TextMeshProUGUI verdictText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
-
+    
     private void OnEnable()
     {
         if(References.thePlayer == null)
         {
             verdictText.text = "DEAD";
-
         }
         else
         {

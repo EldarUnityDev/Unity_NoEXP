@@ -31,14 +31,11 @@ public class RailgunBeam : BulletBehaviour
         */
         //для тейзера нужен только один:
         Physics.Raycast(transform.position, transform.forward, out RaycastHit firstEnemyHitInfo, distanceToWall, References.enemyLayer);
-        if (firstEnemyHitInfo.collider != null && firstEnemyHitInfo.collider.GetComponent<HealthSystem>() != null)
+        if (firstEnemyHitInfo.collider != null && firstEnemyHitInfo.collider.GetComponentInParent<HealthSystem>() != null)
         {
-
-            firstEnemyHitInfo.collider.GetComponent<NavMeshAgent>().speed += 20;
-            firstEnemyHitInfo.collider.GetComponent<NavMeshAgent>().acceleration = firstEnemyHitInfo.collider.GetComponent<NavMeshAgent>().speed;
-            firstEnemyHitInfo.collider.GetComponent<EnemyBehaviour>().overchargedStep += 1;
-
-
+            firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().speed += 20;
+            firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().acceleration = firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().speed;
+            firstEnemyHitInfo.collider.GetComponentInParent<EnemyBehaviour>().overchargedStep += 1;
         }
 
         //Step 3 - show the beam

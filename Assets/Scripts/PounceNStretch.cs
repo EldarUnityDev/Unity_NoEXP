@@ -122,8 +122,6 @@ public class PounceNStretch : MonoBehaviour
                 myTimerSlider.ShowTime(Mathf.Clamp01(currentRechargeTime / rechargeTime));
                 myTimerSlider.transform.position = transform.position + Vector3.up * -0.8f;
             }
-
-
         }
     }
     private void OnDestroy()

@@ -127,7 +127,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5243339023964065377, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_Speed
-      value: 25
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243339023964065377, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_Height
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243339023964065377, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_Radius
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243339023964065377, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: maxHealth
@@ -151,15 +163,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.711685
+      value: 18.07
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.58508
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.662632
+      value: 5.03
       objectReference: {fileID: 0}
     - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -191,7 +203,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048882879232505482, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: speed
-      value: 25
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048882879232505482, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: knockBackOn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048882879232505482, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: explodeOnTouch

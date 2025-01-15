@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086b20009b76dba4fa5ca7c8ea04c134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
   ourRigidBody: {fileID: 0}
   agent: {fileID: 0}
   overchargedStep: 0
@@ -307,7 +307,8 @@ MonoBehaviour:
   knockbackTime: 0.5
   knockbackCurrentTime: 0
   beingKnockedBack: 0
-  chasePlayerOn: 0
+  chasePlayerOn: 1
+  explodeOnTouch: 0
 --- !u!114 &183096020928300245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,9 +324,11 @@ MonoBehaviour:
   maxHealth: 3
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 2965247268660800154, guid: cf0af511041f64544a5e05afb8183cd2, type: 3}
+  lootDrop: {fileID: 0}
   bounty: 100
   chanceOfBounty: 0.2
   secondsForBoutyToDecay: 10
+  showScoreMenu: 0
 --- !u!114 &6581609217926314917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +353,6 @@ MonoBehaviour:
   knockBackForceUp: 70
   myTimerSliderPrefab: {fileID: 1055153705251040967, guid: f532a6cee21db414daf9cf09abb3d5eb, type: 3}
   targetTexture: {fileID: 0}
-  myCam: {fileID: 775081003458655363}
+  myCam: {fileID: 0}
   myCamGameObject: {fileID: 6489745908011438052}
   myCamTicket: 0

@@ -21,6 +21,8 @@ public class EnemyBehaviour : MonoBehaviour
     public bool chasePlayerOn;
     public bool explodeOnTouch;
 
+    public bool initialContactDone;
+
     protected void OnEnable()
     {
         References.allEnemies.Add(this);
@@ -56,9 +58,13 @@ public class EnemyBehaviour : MonoBehaviour
             Vector3 vectorToPlayer = PlayerPosition() - transform.position;
 
             // if can see player, chase
-            if (!Physics.Raycast(transform.position, vectorToPlayer, vectorToPlayer.magnitude, References.wallsLayer))
+            if (!initialContactDone)   //если ещё не виделись
             {
-                chasePlayerOn = true;
+                if (!Physics.Raycast(transform.position, vectorToPlayer, vectorToPlayer.magnitude, References.wallsLayer))
+                {
+                    chasePlayerOn = true;
+                    initialContactDone = true;
+                }
             }
         }
 
@@ -69,7 +75,8 @@ public class EnemyBehaviour : MonoBehaviour
         
         if (overchargedStep >= overchargeLimit) //считаем попадания по нам электрошоком
         {
-            GetComponent<HealthSystem>().TakeDamage(GetComponent<HealthSystem>().maxHealth);
+
+            GetComponent<HealthSystem>().KillMe();
         }
 
         if (beingKnockedBack == true) //таймер на отскок
@@ -107,7 +114,6 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 Vector3 playerPositionAtOurHeight = new Vector3(playerPosition.x, transform.position.y, playerPosition.z);
                 transform.LookAt(playerPositionAtOurHeight); //сюда смотри
-
             }
 
             //follow the player

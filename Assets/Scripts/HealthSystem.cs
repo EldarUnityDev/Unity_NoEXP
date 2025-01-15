@@ -11,6 +11,8 @@ public class HealthSystem : MonoBehaviour
 
     public GameObject healthBarPrefab;
     public GameObject deathEffectPrefab;
+    public GameObject explosiveDeath;
+
     public GameObject lootDrop;
 
     HealthBarBehaviour myHealthBar;

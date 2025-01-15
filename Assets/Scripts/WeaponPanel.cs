@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WeaponPanel : MonoBehaviour
 {
-
     public TextMeshProUGUI weaponName;
     public TextMeshProUGUI ammoCount;
 

@@ -13,5 +13,4 @@ public class StartingPosition : MonoBehaviour
         References.thePlayer.transform.position = transform.position;
         Destroy(gameObject);
     }
-
 }

@@ -17,7 +17,6 @@ public class ScoreManager : MonoBehaviour
     {
         highScore = PlayerPrefs.GetInt("highScore");
         References.canvas.highScoreText.text = highScore.ToString();
-
     }
 
     public void IncreaseScore(int amount)
