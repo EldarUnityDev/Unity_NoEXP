@@ -10,7 +10,7 @@ public class RailgunBeam : BulletBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float secondsUntilDestroyedOri = secondsUntilDestroyed;
+       // float secondsUntilDestroyedOri = secondsUntilDestroyed;
         float beamThickness = 0.5f;
 
         //Step 1 - fire a laser to nearest wall
@@ -33,9 +33,12 @@ public class RailgunBeam : BulletBehaviour
         Physics.Raycast(transform.position, transform.forward, out RaycastHit firstEnemyHitInfo, distanceToWall, References.enemyLayer);
         if (firstEnemyHitInfo.collider != null && firstEnemyHitInfo.collider.GetComponentInParent<HealthSystem>() != null)
         {
-            firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().speed += 20;
+            firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().speed += 7;
             firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().acceleration = firstEnemyHitInfo.collider.GetComponentInParent<NavMeshAgent>().speed;
             firstEnemyHitInfo.collider.GetComponentInParent<EnemyBehaviour>().overchargedStep += 1;
+            firstEnemyHitInfo.collider.GetComponentInParent<EnemyBehaviour>().explodeOnTouch = true;
+            firstEnemyHitInfo.collider.GetComponentInParent<HealthSystem>().currentHealth = 1;
+
         }
 
         //Step 3 - show the beam

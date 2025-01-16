@@ -4,35 +4,29 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextArenaScript : MonoBehaviour
+public class ExitAreaScript : MonoBehaviour
 {
-    //public SceneAsset nextLevel;
-    
     public float secondsBeforeNextLevel;
     public float graceTimeAtEndOfLevel;
-    // Start is called before the first frame update
+    public GameObject currentArena;
+    public GameObject nextArena;
+    public bool nextArenaSwitch;
+
     void Start()
     {
         secondsBeforeNextLevel = graceTimeAtEndOfLevel;
     }
-    
+
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerBehaviour>() != null)
+        if (other.gameObject.GetComponentInParent<PlayerBehaviour>() != null)
         {
-            Debug.Log("+inside me");
             secondsBeforeNextLevel -= Time.deltaTime;
-
             if (secondsBeforeNextLevel <= 0)
             {
-                // go to the next level
-              //  SceneManager.LoadScene(nextLevel.name);
-
+                //move the level
+                nextArenaSwitch = true;
             }
-        }
-        else
-        {
-            secondsBeforeNextLevel = graceTimeAtEndOfLevel;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -44,7 +38,13 @@ public class NextArenaScript : MonoBehaviour
     }
     private void Update()
     {
-       // Debug.Log(secondsBeforeNextLevel);
+        if (nextArenaSwitch)
+        {
+            //z = -25
+            
+            nextArena.transform.position -= new Vector3(0,0,9) * Time.deltaTime;
+        }
     }
 }
-    
+
+

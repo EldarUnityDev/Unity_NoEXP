@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086b20009b76dba4fa5ca7c8ea04c134, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   ourRigidBody: {fileID: 0}
   agent: {fileID: 0}
   overchargedStep: 0
@@ -60,6 +60,8 @@ MonoBehaviour:
   knockbackCurrentTime: 0
   beingKnockedBack: 0
   chasePlayerOn: 0
+  explodeOnTouch: 0
+  initialContactDone: 0
 --- !u!114 &6246503443318716381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,8 +75,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  currentHealth: 0
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 2965247268660800154, guid: cf0af511041f64544a5e05afb8183cd2, type: 3}
+  explosiveDeath: {fileID: 4924793094549447884, guid: 4031479e2566c984cb7c9826ab61cb42, type: 3}
   lootDrop: {fileID: 0}
   bounty: 150
   chanceOfBounty: 0.2

@@ -30,7 +30,7 @@ public class LevelManager : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Level 4");
+        SceneManager.LoadScene("Pounce n Plinths");
         Time.timeScale = 1;
     }
     public void StartTurorial()

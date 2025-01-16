@@ -88,7 +88,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             //show USE prompt
             References.canvas.usePromptSignal = true;
-            if (Input.GetButton("Use"))
+            if (Input.GetButtonDown("Use"))
             {
                 nearestUseableSoFar.Use();
             }

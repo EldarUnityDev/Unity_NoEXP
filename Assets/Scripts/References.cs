@@ -40,6 +40,6 @@ public static class References //: MonoBehaviour - означает, что скрипт - компон
     public static TriggerAnimation triggerAnimation;
     public static FingerAnimation fingerAnimation;
 
-
+    public static ArenaTimer arenaTimer;
     public static Persistent essentials;
 }

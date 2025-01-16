@@ -128,7 +128,10 @@ public class PounceNStretch : MonoBehaviour
     {
         if (leaping && myCamTicket <= 4)
         {
-            References.canvas.GetComponent<EnemyCamSettings>().turnOffTheCamera(myCamTicket);
+            if(References.canvas != null)
+            {
+                References.canvas.GetComponent<EnemyCamSettings>().turnOffTheCamera(myCamTicket);
+            }
         }
         if (myTimerSlider != null) //это только ради юнити, чтобы не было ошибки по окончанию сессии
         {

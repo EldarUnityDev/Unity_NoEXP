@@ -23,6 +23,9 @@ public class CanvasBehaviour : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public TextMeshProUGUI recentScoreText;
     public TextMeshProUGUI alarmCountdownText;
+    public TextMeshProUGUI arenaTimerText;
+
+
 
     public WeaponPanel mainWeaponPanel;
     public WeaponPanel secondaryWeaponPanel;

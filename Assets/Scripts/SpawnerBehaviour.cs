@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnerBehaviour : MonoBehaviour
 {
-    private GameObject enemyPrefab;
+    public GameObject enemyPrefab;
     public GameObject spawnPoint;
     public float secondsBetweenSpawns;
     float secondsSinceLastSpawn;

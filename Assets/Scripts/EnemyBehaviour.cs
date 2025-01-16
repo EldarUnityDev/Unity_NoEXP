@@ -44,7 +44,6 @@ public class EnemyBehaviour : MonoBehaviour
         overchargedStep = 0;
         knockbackCurrentTime = 0;
         beingKnockedBack = false;
-        //chasePlayerOn = true;
 
     }
     protected Vector3 PlayerPosition()

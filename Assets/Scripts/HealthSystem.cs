@@ -5,9 +5,9 @@ using UnityEngine.Serialization;
 
 public class HealthSystem : MonoBehaviour
 {
-    [FormerlySerializedAs ("healthPoints")]
+    [FormerlySerializedAs("healthPoints")]
     public float maxHealth;
-    float currentHealth;
+    public float currentHealth;
 
     public GameObject healthBarPrefab;
     public GameObject deathEffectPrefab;
@@ -30,11 +30,11 @@ public class HealthSystem : MonoBehaviour
         GameObject healthBarObject = Instantiate(healthBarPrefab, References.canvas.gameUIParent);
         myHealthBar = healthBarObject.GetComponent<HealthBarBehaviour>();
 
-        if(Random.value > chanceOfBounty) //у всех по умолчанию есть награда, но мы её стираем
+        if (Random.value > chanceOfBounty) //у всех по умолчанию есть награда, но мы её стираем
         {
             bounty = 0;
         }
-        if(secondsForBoutyToDecay != 0)
+        if (secondsForBoutyToDecay != 0)
         {
             decayRate = bounty / secondsForBoutyToDecay;
         }
@@ -54,16 +54,28 @@ public class HealthSystem : MonoBehaviour
     //public - другие скрипты увидят эту функцию, void - не возвращает значений
     public void TakeDamage(float damageAmount)
     {
-        if(currentHealth > 0)
+        if (currentHealth > 0)
         {
             currentHealth -= damageAmount;
             if (currentHealth <= 0)
             {
-                if (deathEffectPrefab != null)
+                if (GetComponent<EnemyBehaviour>() != null)
+                {
+                    if (deathEffectPrefab != null && !GetComponent<EnemyBehaviour>().explodeOnTouch)
+                    {
+                        Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+                    }
+                    else //будет ошибка, если нет ни того ни другого
+                    {
+                        Instantiate(explosiveDeath, transform.position, transform.rotation);
+                    }
+                }
+                else
                 {
                     Instantiate(deathEffectPrefab, transform.position, transform.rotation);
                 }
-                if(lootDrop != null)
+
+                if (lootDrop != null)
                 {
                     Instantiate(lootDrop, transform.position, transform.rotation);
                 }
@@ -80,7 +92,7 @@ public class HealthSystem : MonoBehaviour
     private void OnDestroy()
     {
         //don't create anything in ONDESTROY - it's only for cleaning up
-        if(myHealthBar != null) //это только ради юнити, чтобы не было ошибки по окончанию сессии
+        if (myHealthBar != null) //это только ради юнити, чтобы не было ошибки по окончанию сессии
         {
             Destroy(myHealthBar.gameObject);
         }

@@ -56,9 +56,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0df8c0ee1f452e54694d92f99b0d560b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 40
+  ableToRicochet: 0
+  bulletSpeed: 60
   secondsUntilDestroyed: 2
-  bulletDamage: 1
+  bulletDamage: 5
   knockbackDirection: {x: 0, y: 0, z: 0}
   knockbackPower: 5
 --- !u!23 &7994827165474817248
