@@ -333,6 +333,8 @@ MonoBehaviour:
   knockbackCurrentTime: 0
   beingKnockedBack: 0
   chasePlayerOn: 0
+  explodeOnTouch: 0
+  initialContactDone: 0
   onPatrol: 1
   visionRange: 8
   visionConeAngle: 42
@@ -356,9 +358,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+  currentHealth: 0
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 1061724170041430318, guid: 86eba1c3f094ed44ea25f536827016ea, type: 3}
-  lootDrop: {fileID: 0}
+  explosiveDeath: {fileID: 1061724170041430318, guid: 86eba1c3f094ed44ea25f536827016ea, type: 3}
+  lootDrop: {fileID: 8289094323994151942, guid: 8af7a10c64b171640829b70de9864b6b, type: 3}
   bounty: 0
   chanceOfBounty: 0
   secondsForBoutyToDecay: 0

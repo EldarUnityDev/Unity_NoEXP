@@ -327,6 +327,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5998160557724283804, guid: 0b0280441b348154584559f80881fc0b, type: 3}
+      propertyPath: kickAmount
+      value: 444
+      objectReference: {fileID: 0}
+    - target: {fileID: 5998160557724283804, guid: 0b0280441b348154584559f80881fc0b, type: 3}
       propertyPath: numberOfProjectiles
       value: 9
       objectReference: {fileID: 0}

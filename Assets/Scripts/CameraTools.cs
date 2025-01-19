@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraTools : MonoBehaviour
 {
-
     Vector3 normalPosition;
     Vector3 desiredPosition;
     public Vector3 joltVector;
@@ -19,23 +18,14 @@ public class CameraTools : MonoBehaviour
     {
         References.cameraTools = this;
     }
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         normalPosition = transform.position;
-        //store our position relative to the player
-        cameraOffset = transform.position - References.thePlayer.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //set our position by looking at the players position+adding offset
-        if(References.thePlayer != null)
-        {
-            normalPosition = References.thePlayer.transform.position + cameraOffset;
-        }
+
 
         Vector3 shakeVector = new Vector3(GetRnadmoShakeAmount(), GetRnadmoShakeAmount(), GetRnadmoShakeAmount());
         desiredPosition = normalPosition + joltVector + shakeVector;

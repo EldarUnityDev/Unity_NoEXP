@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: deathEffectPrefab
       value: 
-      objectReference: {fileID: 4924793094549447884, guid: 4031479e2566c984cb7c9826ab61cb42, type: 3}
+      objectReference: {fileID: 2965247268660800154, guid: cf0af511041f64544a5e05afb8183cd2, type: 3}
     - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: secondsForBoutyToDecay
       value: 20

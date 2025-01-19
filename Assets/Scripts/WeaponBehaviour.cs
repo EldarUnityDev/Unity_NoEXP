@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class WeaponBehaviour : MonoBehaviour
 {
+    public GameObject shotAudioObj;
+    public GameObject reloadAudioObj;
     AudioSource shotAudio;
+    AudioSource reloadAudio;
+
     public GameObject bullet;
     public float accuracy;
     public float secondsBetweenShots;
@@ -21,6 +25,8 @@ public class WeaponBehaviour : MonoBehaviour
     public int currentMagSize;
     public int magNumber;
     public bool autoMode;
+    bool reloading;
+    float timeToReload;
 
     public GameObject magUIPrefab;
     MagBarBehaviour myMagBar;
@@ -31,16 +37,17 @@ public class WeaponBehaviour : MonoBehaviour
         currentMagSize = magSize;
         GameObject magUIObject = Instantiate(magUIPrefab, References.canvas.transform);
         myMagBar = magUIObject.GetComponent<MagBarBehaviour>();
-        shotAudio = GetComponent<AudioSource>();
-
+        shotAudio = shotAudioObj.GetComponent<AudioSource>();
+        reloadAudio = reloadAudioObj.GetComponent<AudioSource>();
         timeBeforeReload = 3; //for enemies
+        timeToReload = reloadAudio.clip.length;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameObject.transform.parent != null)
+        if (gameObject.transform.parent != null)
         {
             if (gameObject.transform.parent.GetComponent<PlayerBehaviour>()) //а то и врагов перезаряжает
             {
@@ -54,7 +61,18 @@ public class WeaponBehaviour : MonoBehaviour
                 }
             }
         }
-        
+
+        if (reloading)
+        {
+            timeToReload -= Time.deltaTime;
+            if(timeToReload <= 0)
+            {
+                currentMagSize = magSize;
+                secondsSinceLastShot = secondsBetweenShots;
+                reloading = false;
+                timeToReload = reloadAudio.clip.length;
+            }
+        }
         if (secondsSinceLastShot < secondsBetweenShots)
         {
             secondsSinceLastShot += Time.deltaTime;
@@ -76,8 +94,11 @@ public class WeaponBehaviour : MonoBehaviour
 
     public void ReloadMag()
     {
-        currentMagSize = magSize;
-        secondsSinceLastShot = secondsBetweenShots;
+        if (reloadAudio != null)
+        {
+            reloadAudio.Play();
+        }
+        reloading = true;
     }
     public void ReduceMagNumber()
     {
@@ -88,11 +109,11 @@ public class WeaponBehaviour : MonoBehaviour
         if (secondsSinceLastShot >= secondsBetweenShots && currentMagSize > 0)
         {
             //ready to fire
-            for(int i = 0; i < numberOfProjectiles; i++)
+            for (int i = 0; i < numberOfProjectiles; i++)
             {
                 //Create a copy (what, where, where to look)
-                References.alarmManager.SoundTheAlarm();
-                if(shotAudio != null)
+                //References.alarmManager.SoundTheAlarm();
+                if (shotAudio != null)
                 {
                     shotAudio.Play();
 
