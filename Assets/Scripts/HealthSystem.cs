@@ -79,7 +79,7 @@ public class HealthSystem : MonoBehaviour
                 {
                     Instantiate(lootDrop, transform.position, transform.rotation);
                 }
-                References.scoreManager.IncreaseScore(Mathf.FloorToInt(bounty));
+                //References.scoreManager.IncreaseScore(Mathf.FloorToInt(bounty));
                 if (showScoreMenu)
                 {
                     References.canvas.ShowScoreMenu();

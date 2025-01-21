@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4966699083040699459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2393625170787084490, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_Name
+      value: Rusher Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011505487595166018, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011505487595166018, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.47748277
+      objectReference: {fileID: 0}
+    - target: {fileID: 5011505487595166018, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243339023964065377, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_Radius
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: maxHealth
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: chanceOfBounty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: explosiveDeath
+      value: 
+      objectReference: {fileID: 2965247268660800154, guid: cf0af511041f64544a5e05afb8183cd2, type: 3}
+    - target: {fileID: 6246503443318716381, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: secondsForBoutyToDecay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1239
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 81.43246
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.814527
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7272382413769768480, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048882879232505482, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}

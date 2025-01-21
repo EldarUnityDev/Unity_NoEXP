@@ -39,6 +39,9 @@ public class ExitAreaScript : MonoBehaviour
             {
                 //move the level
                 nextArenaSwitch = true;
+                References.thePlayer.GetComponent<PlayerBehaviour>().enabled = false;
+                References.thePlayer.GetComponent<Rigidbody>().isKinematic = true;
+
             }
         }
     }
@@ -72,6 +75,9 @@ public class ExitAreaScript : MonoBehaviour
                 stillThere = false;
                 transform.position -= new Vector3(0, 2, 0);
                 References.thePlayer.transform.position -= new Vector3(0, 2, 0);
+                References.thePlayer.GetComponent<PlayerBehaviour>().enabled = true; //включаем игрока
+                References.thePlayer.GetComponent<Rigidbody>().isKinematic = false;
+
             }
         }
     }

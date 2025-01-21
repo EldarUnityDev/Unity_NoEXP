@@ -11,6 +11,7 @@ public class ArenaTimer : MonoBehaviour
     public float timeLimit;
     float secondsLeft;
     public bool enemiesHaveSpawned;
+    public bool arenaTimerOn;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class ArenaTimer : MonoBehaviour
     private void Start()
     {
         secondsLeft = timeLimit;
+        References.canvas.arenaTimerText.enabled = false;
     }
     private void Update()
     {
@@ -31,15 +33,18 @@ public class ArenaTimer : MonoBehaviour
         {
             alarmSound.Stop();
         }*/
-        if(secondsLeft > 0)
+        if (arenaTimerOn)
         {
-            References.canvas.arenaTimerText.enabled = true;
-            secondsLeft -= Time.deltaTime;
-            References.canvas.arenaTimerText.text = secondsLeft.ToString("N1");
-        }
-        else
-        {
-            References.canvas.arenaTimerText.enabled = false;
+            if (secondsLeft > 0)
+            {
+                References.canvas.arenaTimerText.enabled = true;
+                secondsLeft -= Time.deltaTime;
+                References.canvas.arenaTimerText.text = secondsLeft.ToString("N1");
+            }
+            else
+            {
+                References.canvas.arenaTimerText.enabled = false;
+            }
         }
     }
 }

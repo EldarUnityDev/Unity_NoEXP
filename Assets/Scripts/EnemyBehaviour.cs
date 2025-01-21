@@ -97,6 +97,11 @@ public class EnemyBehaviour : MonoBehaviour
                 GetComponent<HealthSystem>().KillMe();
             }
         }
+        if (!explodeOnTouch && collision.gameObject.GetComponent<PlayerBehaviour>() != null)
+        {
+            collision.gameObject.GetComponent<HealthSystem>().TakeDamage(5);
+        }
+
     }
 
     protected void ChasePlayer()

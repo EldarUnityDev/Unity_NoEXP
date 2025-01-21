@@ -61,7 +61,7 @@ MonoBehaviour:
   secondsUntilDestroyed: 2
   bulletDamage: 5
   knockbackDirection: {x: 0, y: 0, z: 0}
-  knockbackPower: 5
+  knockbackPower: 1
 --- !u!23 &7994827165474817248
 MeshRenderer:
   m_ObjectHideFlags: 0
