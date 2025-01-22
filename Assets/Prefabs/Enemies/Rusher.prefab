@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2393625170787084490, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_Name
-      value: Rusher Variant
+      value: Rusher
       objectReference: {fileID: 0}
     - target: {fileID: 5011505487595166018, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
       propertyPath: m_LocalScale.x
@@ -95,5 +95,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2393625170787084490, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4890741838534612586}
   m_SourcePrefab: {fileID: 100100000, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+--- !u!1 &7339354367857040521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2393625170787084490, guid: 9e4cf14fd867a664d8241b20e740569b, type: 3}
+  m_PrefabInstance: {fileID: 4966699083040699459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4890741838534612586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339354367857040521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb64e8782825f424da83115781a9fb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ourRigidBody: {fileID: 0}
+  agent: {fileID: 0}
