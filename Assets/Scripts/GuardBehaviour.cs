@@ -68,20 +68,15 @@ public class GuardBehaviour : EnemyBehaviour
 
     protected override void Update()
     {
-        //всеобщая тревога
-        if (References.alarmManager.AlarmHasSounded())
-        {
-            alerted = true;
-        }
 
-        //без этого условия при смерти игрока у врагов будет ошибка
+                //без этого условия при смерти игрока у врагов будет ошибка
         if (References.thePlayer != null)
         {
             //where to go = destination - the origin
             Vector3 vectorToPlayer = PlayerPosition() - transform.position;
             myLighty.color = Color.white;
 
-            if (alerted && !beingKnockedBack)
+            if (alerted)
             {
                 //follow the player
                 myLighty.color = Color.red;
@@ -115,7 +110,7 @@ public class GuardBehaviour : EnemyBehaviour
                     myWeapon.timeBeforeReload = 3;
                 }
             }
-
+/*
             //если нас пинают
             if (beingKnockedBack == true)
             {//считаем, когда закончится пинок
@@ -124,7 +119,7 @@ public class GuardBehaviour : EnemyBehaviour
                 {
                     StopKnockback();
                 }
-            }
+            }*/
             //kostil
             if (agent.enabled)
             {
@@ -150,7 +145,7 @@ public class GuardBehaviour : EnemyBehaviour
                         {
                             myLighty.color = Color.red;
                             alerted = true;
-                            References.alarmManager.SoundTheAlarm();
+                            //References.alarmManager.SoundTheAlarm();
                         }
                     }
                 }

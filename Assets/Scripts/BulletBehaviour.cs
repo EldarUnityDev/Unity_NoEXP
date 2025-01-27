@@ -34,7 +34,6 @@ public class BulletBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -51,9 +50,9 @@ public class BulletBehaviour : MonoBehaviour
         if (theirGameObject.GetComponent<EnemyBehaviour>() != null)
         {
             //Knockback - Если можно толкнуть
-            if (theirGameObject.GetComponent<EnemyBehaviour>().knockBackOn)
+            if (theirGameObject.GetComponent<KnockBackScript>().knockBackOn)
             {
-                theirGameObject.GetComponent<EnemyBehaviour>().GetKnockedBack(knockbackDirection, knockbackPower);
+                theirGameObject.GetComponent<KnockBackScript>().GetKnockedBack(knockbackDirection, knockbackPower);
             }
 
             Destroy(gameObject);

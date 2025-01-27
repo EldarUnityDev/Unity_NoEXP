@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Serialization;
 
 public class HealthSystem : MonoBehaviour
@@ -8,6 +10,8 @@ public class HealthSystem : MonoBehaviour
     [FormerlySerializedAs("healthPoints")]
     public float maxHealth;
     public float currentHealth;
+    public Rigidbody ourRigidBody;
+    public NavMeshAgent agent;
 
     public GameObject healthBarPrefab;
     public GameObject deathEffectPrefab;
@@ -22,9 +26,15 @@ public class HealthSystem : MonoBehaviour
     public float secondsForBoutyToDecay;
     float decayRate;
 
+    public bool readyToDie;
+    public bool startSelfDestruct;
+
     public bool showScoreMenu;
+
+    public float selfDestructTimer;
     private void Start()
     {
+        readyToDie = true;
         currentHealth = maxHealth;
         //Create our health panel on the canvas
         GameObject healthBarObject = Instantiate(healthBarPrefab, References.canvas.gameUIParent);
@@ -40,6 +50,10 @@ public class HealthSystem : MonoBehaviour
         }
 
         myHealthBar.bountyText.text = bounty.ToString();
+        ourRigidBody = GetComponent<Rigidbody>(); //чтобы управл€ть физикой
+        agent = GetComponent<NavMeshAgent>();     //чтобы управл€ть физикой
+
+        selfDestructTimer = 3;
     }
 
     public void KillMe()
@@ -59,34 +73,62 @@ public class HealthSystem : MonoBehaviour
             currentHealth -= damageAmount;
             if (currentHealth <= 0)
             {
-                if (GetComponent<EnemyBehaviour>() != null)
+                if (!readyToDie)
                 {
-                    if (deathEffectPrefab != null && !GetComponent<EnemyBehaviour>().explodeOnTouch)
+                    TurnIntoRagdoll(); //если не готовы умереть, do we need "else"?
+                }
+                if (readyToDie)
+                {
+                    if (GetComponent<EnemyBehaviour>() != null)
+                    {
+                        if (deathEffectPrefab != null && !GetComponent<EnemyBehaviour>().explodeOnTouch)
+                        {
+                            Instantiate(deathEffectPrefab, transform.position, transform.rotation); //обычна€ смерть
+                        }
+                        else //будет ошибка, если нет ни того ни другого
+                        {
+                            Instantiate(explosiveDeath, transform.position, transform.rotation);
+                        }
+                    }
+                    else
                     {
                         Instantiate(deathEffectPrefab, transform.position, transform.rotation);
                     }
-                    else //будет ошибка, если нет ни того ни другого
+
+                    if (lootDrop != null)
                     {
-                        Instantiate(explosiveDeath, transform.position, transform.rotation);
+                        Instantiate(lootDrop, transform.position, transform.rotation);
                     }
-                }
-                else
-                {
-                    Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+
+                    Destroy(gameObject);
                 }
 
-                if (lootDrop != null)
-                {
-                    Instantiate(lootDrop, transform.position, transform.rotation);
-                }
+
+
                 //References.scoreManager.IncreaseScore(Mathf.FloorToInt(bounty));
-                if (showScoreMenu)
+                /*if (showScoreMenu)
                 {
                     References.canvas.ShowScoreMenu();
-                }
-                Destroy(gameObject);
+                }*/
+                //Destroy(gameObject);
+                //enabled = false; //отключаем скрипт
             }
         }
+    }
+
+    public void TurnIntoRagdoll()
+    {
+        if (agent != null)
+        {
+            agent.enabled = false; //выключаем навигацию
+        }
+        transform.parent = null;
+        ourRigidBody.isKinematic = false; //чтобы можно было вли€ть на физику
+        ourRigidBody.constraints = RigidbodyConstraints.None;
+        GetComponent<KnockBackScript>().knockbackTime = 100;
+
+        GetComponent<KnockBackScript>().GetKnockedBack(-gameObject.transform.forward, 15);
+        startSelfDestruct = true;
     }
 
     private void OnDestroy()
@@ -117,6 +159,21 @@ public class HealthSystem : MonoBehaviour
         else            //если нет награды
         {
             myHealthBar.bountyText.enabled = false;
+        }
+
+        //самоуничтожение, как у пули
+        if (startSelfDestruct)
+        {
+            selfDestructTimer -= Time.deltaTime;
+            if (selfDestructTimer < 1)
+            {
+                transform.localScale *= selfDestructTimer;
+
+            }
+            if (selfDestructTimer <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -13,15 +13,13 @@ public class EnemyBehaviour : MonoBehaviour
     public int overchargedStep; //FOR TASER
     public int overchargeLimit;
 
-    public bool knockBackOn; // можно толкать
-    public float knockbackTime; // время до отключения 
-    public float knockbackCurrentTime; //текущее время
-    public bool beingKnockedBack; //для запуска таймера на выключение
 
     public bool chasePlayerOn;
     public bool explodeOnTouch;
 
     public bool initialContactDone;
+
+    public bool attachable;
 
     protected void OnEnable()
     {
@@ -42,8 +40,7 @@ public class EnemyBehaviour : MonoBehaviour
         agent.speed = speed;
 
         overchargedStep = 0;
-        knockbackCurrentTime = 0;
-        beingKnockedBack = false;
+
 
     }
     protected Vector3 PlayerPosition()
@@ -66,25 +63,9 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
         }
-
-        if (chasePlayerOn && !beingKnockedBack) //постоянно смотрим и идем к игроку
+        if (chasePlayerOn) //постоянно смотрим и идем к игроку
         {
             ChasePlayer();
-        }
-        
-        if (overchargedStep >= overchargeLimit) //считаем попадания по нам электрошоком
-        {
-
-            GetComponent<HealthSystem>().KillMe();
-        }
-
-        if (beingKnockedBack == true) //таймер на отскок
-        {
-            knockbackCurrentTime += Time.deltaTime;
-            if (knockbackCurrentTime >= knockbackTime)
-            {
-                StopKnockback();
-            }
         }
     }
 
@@ -97,10 +78,14 @@ public class EnemyBehaviour : MonoBehaviour
                 GetComponent<HealthSystem>().KillMe();
             }
         }
-        if (!explodeOnTouch && collision.gameObject.GetComponent<PlayerBehaviour>() != null)
+        if (attachable)
         {
-            collision.gameObject.GetComponent<HealthSystem>().TakeDamage(5);
+            if (!explodeOnTouch && collision.gameObject.GetComponent<PlayerBehaviour>() != null && !GetComponent<Attaching>().attached)
+            {
+                collision.gameObject.GetComponent<HealthSystem>().TakeDamage(1);
+            }
         }
+
 
     }
 
@@ -126,31 +111,5 @@ public class EnemyBehaviour : MonoBehaviour
                 agent.destination = playerPosition;          //сюда иди
             }
         }
-    }
-
-
-
-    //толкает пуля : BulletBehaviour
-    public void GetKnockedBack(Vector3 knockbackVector, float knockbackPower)
-    {
-        knockBackOn = false; //пока толкают, снова толкать нельзя
-
-        agent.enabled = false; //выключаем навигацию
-
-        ourRigidBody.isKinematic = false; //чтобы можно было влиять на физику
-        ourRigidBody.constraints = RigidbodyConstraints.None;
-
-        ourRigidBody.velocity = knockbackVector * knockbackPower;
-
-        beingKnockedBack = true; //в апдейте запускает таймер на остановку
-    }
-    public void StopKnockback()
-    {
-        knockBackOn = true; //обратно на рельсы
-        agent.enabled = true;
-        ourRigidBody.isKinematic = true;
-        knockbackCurrentTime = 0; //обнуляем таймер
-
-        beingKnockedBack = false;
     }
 }

@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 4508415859678863361}
   - component: {fileID: 9060534371266818724}
   - component: {fileID: 2165362849234612203}
+  - component: {fileID: -4812282919945838689}
   m_Layer: 9
   m_Name: Guard
   m_TagString: Untagged
@@ -303,7 +304,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -328,13 +329,10 @@ MonoBehaviour:
   agent: {fileID: 0}
   overchargedStep: 0
   overchargeLimit: 0
-  knockBackOn: 1
-  knockbackTime: 0.5
-  knockbackCurrentTime: 0
-  beingKnockedBack: 0
   chasePlayerOn: 0
   explodeOnTouch: 0
   initialContactDone: 0
+  attachable: 0
   onPatrol: 1
   visionRange: 8
   visionConeAngle: 42
@@ -359,6 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 0
+  ourRigidBody: {fileID: 0}
+  agent: {fileID: 0}
   healthBarPrefab: {fileID: 8128314023848466425, guid: 2741df7094e24d041bfcfde0ef47e01d, type: 3}
   deathEffectPrefab: {fileID: 1061724170041430318, guid: 86eba1c3f094ed44ea25f536827016ea, type: 3}
   explosiveDeath: {fileID: 1061724170041430318, guid: 86eba1c3f094ed44ea25f536827016ea, type: 3}
@@ -366,7 +366,10 @@ MonoBehaviour:
   bounty: 0
   chanceOfBounty: 0
   secondsForBoutyToDecay: 0
+  readyToDie: 0
+  startSelfDestruct: 0
   showScoreMenu: 0
+  selfDestructTimer: 0
 --- !u!114 &2165362849234612203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +400,24 @@ MonoBehaviour:
   canBeReused: 0
   displayName: 
   alarmed: 0
+--- !u!114 &-4812282919945838689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380010384946030259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b248b8714a3276b4cac2eabd1a6698e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ourRigidBody: {fileID: 0}
+  agent: {fileID: 0}
+  knockBackOn: 1
+  knockbackTime: 0
+  knockbackCurrentTime: 0
+  beingKnockedBack: 0
 --- !u!1 &8038820104877632197
 GameObject:
   m_ObjectHideFlags: 0

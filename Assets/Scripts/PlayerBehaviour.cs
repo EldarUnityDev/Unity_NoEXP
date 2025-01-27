@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+
+    public bool slowedDown;
     public float speed;
     //public float health;
 
@@ -30,13 +32,6 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
-        //Movement
-        Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (inputVector.magnitude > 0)
-        {
-            m_Rigidbody.velocity = inputVector * speed;
-        }
         //ѕ–»÷≈Ћ»¬јЌ»≈
         Ray rayFromCameraToCursor = Camera.main.ScreenPointToRay(Input.mousePosition);
         //чтобы сделать плоскость, юнити надо узнать, (где "верх", и откуда начинать)
@@ -46,12 +41,25 @@ public class PlayerBehaviour : MonoBehaviour
         //конвертируем в вектор 1-направление через ray и длину через дистанцию по лучу 
         //или по-другому вот_по_этому_лучу.найди¬ектор(вот“акойƒлины).
         Vector3 cursorPosition = rayFromCameraToCursor.GetPoint(distanceFromCamera);
+        if (!slowedDown)
+        {
+            //Movement
+            Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            if (inputVector.magnitude > 0)
+            {
+                m_Rigidbody.velocity = inputVector * speed;
+            }
+          
 
-        transform.LookAt(cursorPosition);
+            transform.LookAt(cursorPosition);
+
+
+
+        }
         if (mainWeapon != null)
         {
             //автоматическа€ стрельба
-            if (mainWeapon.autoMode && Input.GetButton("Fire1")) 
+            if (mainWeapon.autoMode && Input.GetButton("Fire1"))
             {
                 mainWeapon.Fire(cursorPosition);
             }
@@ -61,7 +69,6 @@ public class PlayerBehaviour : MonoBehaviour
                 mainWeapon.Fire(cursorPosition);
             }
         }
-
         if (Input.GetButtonDown("Fire2")) //не всегда работает
         {
             SwitchWeapons();
